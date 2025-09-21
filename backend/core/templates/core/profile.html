@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Profile - Interactive</title>
+  <link rel="stylesheet" href="{% static 'core/css/style.css' %}" />
+  <script defer src="{% static 'core/js/profile.js' %}"></script>
+</head>
+<body>
+
+<div class="profile-container">
+
+  <aside class="sidebar">
+    <div class="avatar">
+      <img src="{% static 'core/images/profile-placeholder.png' %}" alt="Avatar" />
+    </div>
+    <h1 id="profile-name">Loading...</h1>
+    <p class="title" id="profile-title"></p>
+
+    <ul class="menu">
+      <li><svg viewBox="0 0 24 24"><path d="M3 13h2v-2H3v2zm12-4h2v-2h-2v2zm-6 8h8v-2H9v2zm0-8h8v-2H9v2zm6 4h2v-2h-2v2z"/></svg>Skills</li>
+      <li><svg viewBox="0 0 24 24"><path d="M4 5v14h16V5H4zm14 12H6v-2h12v2zm0-4H6v-2h12v2zm0-4H6V7h12v2z"/></svg>Experience</li>
+      <li><svg viewBox="0 0 24 24"><path d="M12 3L2 9l10 6 10-6-10-6zm0 12l-10 6 10 6 10-6-10-6z"/></svg>Education</li>
+      <li><svg viewBox="0 0 24 24"><path d="M12 12a5 5 0 1 1 0-10 5 5 0 0 1 0 10zM6 20c0-3.33 6-5 6-5s6 1.67 6 5v2H6v-2z"/></svg>Interests</li>
+      <li><svg viewBox="0 0 24 24"><path d="M12 12l8-4-8-4-8 4 8 4zM12 22l8-4v-4l-8 4-8-4v4l8 4z"/></svg>Certifications</li>
+    </ul>
+
+    <label class="upload-resume" for="resume-file">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2L8 6h3v8H8l4 4 4-4h-3V6h3z"/></svg>
+      Upload Resume
+    </label>
+    <input type="file" id="resume-file" style="display:none;" />
+  </aside>
+
+  <section class="main-content">
+    <div class="progress-container">
+      <div class="progress-label">Profile Completeness</div>
+      <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+        <div class="progress-bar-inner" id="profile-progress" style="width:0%"></div>
+      </div>
+      <div id="progress-percent" style="margin-left:8px;">0%</div>
+    </div>
+
+    <div class="contact-info">
+      <h2>Contact Information</h2>
+      <div><svg viewBox="0 0 24 24"><path d="M20 4H4v16h16z"/></svg><span id="contact-email"></span></div>
+      <div><svg viewBox="0 0 24 24"><path d="M6.6 10.8L5 9.2c-1.4 1.4-1.4 3.6 0 5l1.6-1.4c.5.3 1 .4 1.5.3s1-.4 1.5-1c.5-.6.7-1.4.6-2.1l-1.6-1.1c.3-.3.7-.5 1.1-.4s.7.4 1 .8z"/></svg><span id="contact-phone"></span></div>
+      <div><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-7.1 17.1L5 21h14v-4.1a10 10 0 0 0-7-14.9z"/></svg><span id="contact-location"></span></div>
+      <div><svg viewBox="0 0 24 24"><path d="M3 10h18v10H3z"/></svg><a href="#" id="contact-website"></a></div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+  document.getElementById('resume-file').addEventListener('change', async e => {
+    const file = e.target.files[0];
+    if (!file) return;
+    alert(`You selected resume file: ${file.name}`);
+    // Implement your upload function here as needed
+  });
+</script>
+
+</body>
+</html>
