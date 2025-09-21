@@ -23,3 +23,10 @@ Thumbs.db
 
 # Env files
 .env
+# Ignore environment and secret files
+.env
+env/
+.venv/
+venv/
+*.env
+
