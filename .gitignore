@@ -26,6 +26,7 @@ Thumbs.db
 # Ignore environment and secret files
 .env
 env/
+env
 .venv/
 venv/
 *.env
